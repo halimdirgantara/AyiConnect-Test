@@ -23,7 +23,6 @@
         href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"
         href="{{ asset('css/components.css') }}">
-
     <!-- Start GA -->
     <script async
         src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -39,23 +38,28 @@
     </script>
     <!-- END GA -->
 </head>
-</head>
 
 <body>
     <div id="app">
-        <div class="main-wrapper">
-            <!-- Header -->
-            @include('components.header')
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div
+                        class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+                        <!-- Header -->
 
-            <!-- Sidebar -->
-            @include('components.sidebar')
 
-            <!-- Content -->
-            @yield('main')
+                        <!-- Content -->
+                        @yield('main')
 
-            <!-- Footer -->
-            @include('components.footer')
-        </div>
+                        <!-- Footer -->
+                        <div class="simple-footer">
+                            Copyright &copy; 2022 - <a target="_blank" href="https://github.com/halimdirgantara">MHalimD</a> using Stisla Admin Template
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- General JS Scripts -->

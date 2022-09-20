@@ -7,6 +7,7 @@ return [
     'email' => 'E-Mail',
     'subdomain' => 'Sub Domain',
     'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
     'submit' => 'Create',
 
 ];
