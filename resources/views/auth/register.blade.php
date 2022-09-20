@@ -15,15 +15,18 @@
             <div class="form-group">
                 <div class="selectgroup w-100">
                     <label class="selectgroup-item">
-                        <input type="radio" name="lang" value="en" class="selectgroup-input btn-lang" checked="">
+                        <input type="radio" name="lang" value="en" class="selectgroup-input changeLang"
+                        {{ session()->get('locale') == 'en' ? 'checked=""' : '' }} >
                         <span class="selectgroup-button">English</span>
                     </label>
                     <label class="selectgroup-item">
-                        <input type="radio" name="lang" value="id" class="selectgroup-input btn-lang">
+                        <input type="radio" name="lang" value="id" class="selectgroup-input changeLang"
+                        {{ session()->get('locale') == 'id' ? 'checked=""' : '' }} >
                         <span class="selectgroup-button">Indonesian</span>
                     </label>
                     <label class="selectgroup-item">
-                        <input type="radio" name="lang" value="es" class="selectgroup-input btn-lang">
+                        <input type="radio" name="lang" value="es" class="selectgroup-input changeLang"
+                        {{ session()->get('locale') == 'es' ? 'checked=""' : '' }} >
                         <span class="selectgroup-button">Spain</span>
                     </label>
                 </div>
@@ -31,14 +34,14 @@
         </div>
 
         <div class="card-header">
-            <h4>Register</h4>
+            <h4>{{ __('register.title') }}</h4>
         </div>
 
         <div class="card-body">
             <form method="POST">
                 <div class="row">
                     <div class="form-group col-4">
-                        <label for="fullname">Full Name</label>
+                        <label for="fullname">{{ __('register.fullname') }}</label>
                     </div>
                     <div class="form-group col-8">
                         <input id="fullname" type="text" class="form-control" name="fullname" autofocus>
@@ -47,7 +50,7 @@
 
                 <div class="row">
                     <div class="form-group col-4">
-                        <label for="email">Email</label>
+                        <label for="email">{{ __('register.email') }}</label>
                     </div>
                     <div class="form-group col-8">
                         <input id="email" type="email" class="form-control" name="email">
@@ -58,7 +61,7 @@
 
                 <div class="row">
                     <div class="form-group col-4">
-                        <label for="subdomain">Sub Domain</label>
+                        <label for="subdomain">{{ __('register.subdomain') }}</label>
                     </div>
                     <div class="form-group col-8">
                         <input id="subdomain" type="text" class="form-control" name="subdomain" autofocus>
@@ -67,7 +70,7 @@
 
                 <div class="row">
                     <div class="form-group col-4">
-                        <label for="password" class="d-block">Password</label>
+                        <label for="password" class="d-block">{{ __('register.password') }}</label>
                     </div>
                     <div class="form-group col-8">
                         <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
@@ -79,17 +82,9 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="form-group col-4">
-                        <label for="password-confirm" class="d-block">Password Confirmation</label>
-                    </div>
-                    <div class="form-group col-8">
-                        <input id="password-confirm" type="password" class="form-control" name="password-confirm">
-                    </div>
-                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        Register
+                        {{ __('register.submit') }}
                     </button>
                 </div>
             </form>
@@ -104,4 +99,14 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/auth-register.js') }}"></script>
+
+    <script type="text/javascript">
+
+        var url = "{{ route('changeLang') }}";
+
+        $(".changeLang").change(function(){
+            window.location.href = url + "?lang="+ $(this).val();
+        });
+
+    </script>
 @endpush
