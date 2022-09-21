@@ -8,7 +8,7 @@
 </p>
 
 
-## HOW TO DEPLY THIS APPLICATION
+## HOW TO DEPLOY THIS APPLICATION
 
 After clone or download this repository, next step is install all dependency required by laravel and laravel-mix.
 
