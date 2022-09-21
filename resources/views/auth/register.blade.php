@@ -121,6 +121,9 @@
                     </button>
                 </div>
             </form>
+            <div class="text-muted mt-5 text-center">
+                Already have an account? <a href="{{ route('login') }}">Login</a>
+            </div>
         </div>
     </div>
 @endsection
@@ -135,7 +138,7 @@
 
     <script type="text/javascript">
 
-        var url = "{{ route('changeLang') }}";
+        var url = "{{ route('changeLang','ayiconnect-test.test') }}";
 
         $(".changeLang").change(function(){
             window.location.href = url + "?lang="+ $(this).val();

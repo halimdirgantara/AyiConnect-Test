@@ -14,8 +14,8 @@
             <div class="section-body">
                 <div class="card card-primary">
                     <div class="card-body">
-                        <p>Full Name : {{ Auth::user()->name }}</p>
-                        <p>E-Mail : {{ Auth::user()->email }}</p>
+                        <p>Full Name : {{ $user->name }}</p>
+                        <p>E-Mail : {{ $user->email }}</p>
                     </div>
                 </div>
 
