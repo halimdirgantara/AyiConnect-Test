@@ -24,9 +24,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                // return redirect(RouteServiceProvider::HOME);
-                $subdomin = Auth::user()->subdomain.'.ayiconnect-test.test';
-                return  redirect()->away($subdomin);
+                return redirect(RouteServiceProvider::HOME);
             }
         }
 

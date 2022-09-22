@@ -3,9 +3,10 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Models\Tenant;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -38,11 +39,18 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $tenant = Tenant::create();
+        $tenant->createDomain([
+            'domain' => $input['subdomain'],
+        ]);
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'subdomain' => $input['subdomain'],
             'password' => Hash::make($input['password']),
         ]);
+
+
     }
 }
