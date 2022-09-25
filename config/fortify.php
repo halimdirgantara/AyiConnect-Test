@@ -1,7 +1,8 @@
 <?php
 
-use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
+use App\Providers\RouteServiceProvider;
+// use Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain;
 
 return [
 
@@ -89,7 +90,11 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => [
+        'web',
+        Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain::class,
+        // InitializeTenancyBySubdomain::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------

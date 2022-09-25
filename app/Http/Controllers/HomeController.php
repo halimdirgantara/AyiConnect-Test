@@ -13,7 +13,6 @@ class HomeController extends Controller
             $user = Auth::user()->first();
             return view('admin.dashboard.index', [
                 'user' => $user,
-                'domain' => 'ayiconnect-test.test',
             ]);
         } else {
             return redirect()->route('welcome', 'ayiconnect-test.test');

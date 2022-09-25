@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguangeController;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +19,16 @@ use App\Http\Controllers\LanguangeController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 Route::get('/register/lang', [LanguangeController::class, 'change'])->name('changeLang');
-
-
 
 Route::post('checkout', function () {
     auth()->logout();
     Session()->flush();
-    return redirect()->route('welcome');
-})->name('checkout');
+    return redirect(env('APP_URL'));
+})->middleware(['universal', InitializeTenancyByDomainOrSubdomain::class])->name('checkout');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', [HomeController::Class, 'index'])->name('dashboard');
-});
+
+
+
+

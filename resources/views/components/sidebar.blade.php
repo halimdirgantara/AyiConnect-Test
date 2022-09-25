@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('welcome', $domain) }}">AyiConnect.Test</a>
+            <a href="{{ route('welcome') }}">AyiConnect.Test</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('welcome', $domain) }}">AC</a>
+            <a href="{{ route('welcome') }}">AC</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>

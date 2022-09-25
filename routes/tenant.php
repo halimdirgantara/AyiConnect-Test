@@ -3,7 +3,10 @@
 declare (strict_types = 1);
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 /*
@@ -20,11 +23,11 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::middleware([
     'web',
+    'auth',
     InitializeTenancyBySubdomain::class,
-    PreventAccessFromCentralDomains::class,
+    // InitializeTenancyByDomainOrSubdomain::class,
+    // PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::get('/', function () {
-        dd(\App\Models\User::all());
-        return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
-    });
+
+    Route::get('dashboard', [HomeController::Class, 'index'])->name('dashboard');
 });

@@ -121,9 +121,9 @@
                     </button>
                 </div>
             </form>
-            <div class="text-muted mt-5 text-center">
-                Already have an account? <a href="{{ route('login') }}">Login</a>
-            </div>
+        </div>
+        <div class="text-muted mt-5 text-center">
+            Already have an account? <a href="{{ route('login') }}">Login</a>
         </div>
     </div>
 @endsection
